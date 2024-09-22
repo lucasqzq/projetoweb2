@@ -1,31 +1,52 @@
-//UserService.js
-const User = require('../models/User')//Grupo 1
-
-process.on('uncaughtException', (error) => {//Grupo 1
-    console.error(`Uncaught Exception: ${error}`)
-})
+const User = require('../models/User');
 
 const UserService = {
-  getAllUsers: async () => {//Grupo 1
-    return await User.find() // ou User.findAll() para Sequelize
-  },
+    getAllUsers: async () => {
+        try {
+            return await User.findAll();
+        } catch (error) {
+            throw new Error('Erro ao buscar usuários: ' + error.message);
+        }
+    },
 
-  getUserById: async (id) => {//Grupo 1
-    return await User.findById(id) // ou User.findByPk(id) para Sequelize
-  },
+    getUserById: async (id) => {
+        try {
+            const user = await User.findByPk(id);
+            if (!user) throw new Error('Usuário não encontrado');
+            return user;
+        } catch (error) {
+            throw new Error('Erro ao buscar usuário: ' + error.message);
+        }
+    },
 
-  createUser: async (userData) => {//Grupo 1
-    const user = new User(userData)
-    return await user.save() // ou User.create(userData) para Sequelize
-  },
+    createUser: async (data) => {
+        try {
+            return await User.create(data); // Aqui deve estar a função create
+        } catch (error) {
+            throw new Error('Erro ao criar usuário: ' + error.message);
+        }
+    },
 
-  updateUser: async (id, userData) => {//Grupo 1
-    return await User.findByIdAndUpdate(id, userData, { new: true }) // ou User.update(userData, { where: { id } }) para Sequelize
-  },
+    updateUser: async (id, data) => {
+        try {
+            const user = await User.findByPk(id);
+            if (!user) throw new Error('Usuário não encontrado');
+            return await user.update(data);
+        } catch (error) {
+            throw new Error('Erro ao atualizar usuário: ' + error.message);
+        }
+    },
 
-  deleteUser: async (id) => {//Grupo 1
-    return await User.findByIdAndDelete(id) // ou User.destroy({ where: { id } }) para Sequelize
-  }
-}
+    deleteUser: async (id) => {
+        try {
+            const user = await User.findByPk(id);
+            if (!user) throw new Error('Usuário não encontrado');
+            await user.destroy();
+            return true;
+        } catch (error) {
+            throw new Error('Erro ao deletar usuário: ' + error.message);
+        }
+    },
+};
 
-module.exports = UserService//Grupo 1
+module.exports = UserService;
