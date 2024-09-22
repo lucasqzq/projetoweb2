@@ -1,16 +1,19 @@
-// User.js
-const { DataTypes } = require('sequelize')//Grupo 1
-//const sequelize = require('../config/database')//a fazer
+const sequelize = require('../database'); 
+const { DataTypes } = require('sequelize');
 
-process.on('uncaughtException', (error) => {//Grupo 1
-    console.error(`Uncaught Exception: ${error}`)
-})
+const User = sequelize.define('User', {
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true, // Adicionando unique para evitar emails duplicados
+    },
+}, {
+    timestamps: true, // Para incluir createdAt e updatedAt
+    tableName: 'teste', // Opcional: define o nome da tabela explicitamente
+});
 
-const User = sequelize.define('User', {//Grupo 1
-  name: { type: DataTypes.STRING, allowNull: true },
-  email: { type: DataTypes.STRING, allowNull: true, unique: true, validate: { is: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }},
-  phone: { type: DataTypes.STRING, allowNull: true, validate: { is: /^\d{3}-\d{3}-\d{4}$/ }},
-  birthdate: { type: DataTypes.DATEONLY, allowNull: true }
-})
-
-module.exports = User//Grupo 1
+module.exports = User;
