@@ -11,7 +11,7 @@ item:
       header: []
       body:
         mode: raw
-        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vinicius@gmail.com\"\r\n}"
+        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vini6622@gmail.com\"\r\n}    \"age\": \"20\"\r\n}    \"number\": \"17988287931\"\r\n}""
         options:
           raw:
             language: json
@@ -36,22 +36,30 @@ item:
         mode: raw
         raw: - id: 1
                name: Vinicius
-               email: vinicius@gmail.com
+               email: vini6622@gmail.com
+               age: 20
+               number: +5517988287931
                createdAt: '2024-09-22T21:15:45.000Z'
                updatedAt: '2024-09-22T21:28:59.000Z'
              - id: 2
-               name: flavio
-               email: flavio@gmail.com
+               name: Paulo
+               email: paulovictroparada19@gmail.com
+               age: 20
+               number: +5517992113583
                createdAt: '2024-09-22T21:21:21.000Z'
                updatedAt: '2024-09-22T21:28:14.000Z'
              - id: 3
                name: caio
-               email: caio@example.com
+               email: caiodesantana2608@outlook.com
+               age: 20
+               number: +5517981711228
                createdAt: '2024-09-22T21:22:08.000Z'
                updatedAt: '2024-09-22T21:22:08.000Z'
              - id: 4
                name: Kumay
-               email: Kumay@gmail.com
+               email: gabrielkumay@hotmail.com
+               age: 20
+               number: +5517997259367
                createdAt: '2024-09-22T21:34:54.000Z'
                updatedAt: '2024-09-22T21:34:54.000Z'
              
@@ -76,7 +84,7 @@ item:
       header: []
       body:
         mode: raw
-        raw: "{\r\n    \"name\": \"Fabio\",\r\n    \"email\": \"Fabio@gmail.com\"\r\n}"
+        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vini6622@gmail.com\"\r\n}    \"number\": \"+5517988287932\"\r\n    \"age\": \"20\"\r\n}"
         options:
           raw:
             language: json
@@ -96,7 +104,7 @@ item:
       header: []
       body:
         mode: raw
-        raw: "{\r\n    \"name\": \"Kumay\",\r\n    \"email\": \"Kumay@gmail.com\"\r\n}"
+        raw: "{\r\n    \"name\": \"Kumay\",\r\n    \"email\": \"Kumay@gmail.com\"\r\n}    "{\r\n    \"number\": \"+5517997259367\",\r\n    \"age\": \"20\"\r\n}"
         options:
           raw:
             language: json
