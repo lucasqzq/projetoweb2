@@ -1,0 +1,126 @@
+info:
+  name: Documentação API
+  description: Documentação das funcões da API
+  _exporter_id: '37391934'
+item:
+  - name: http://localhost:3000/users/1
+    protocolProfileBehavior:
+      disableBodyPruning: true
+    request:
+      method: GET
+      header: []
+      body:
+        mode: raw
+        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vinicius@gmail.com\"\r\n}"
+        options:
+          raw:
+            language: json
+      url:
+        raw: http://localhost:3000/users/
+        protocol: http
+        host:
+          - localhost
+        port: '3000'
+        path:
+          - users
+          - ''
+      description: Metodo Get que retorna usuario em especifico
+    response: []
+    - name: http://localhost:3000/users/
+    protocolProfileBehavior:
+      disableBodyPruning: true
+    request:
+      method: GET
+      header: []
+      body:
+        mode: raw
+        raw: - id: 1
+               name: Vinicius
+               email: vinicius@gmail.com
+               createdAt: '2024-09-22T21:15:45.000Z'
+               updatedAt: '2024-09-22T21:28:59.000Z'
+             - id: 2
+               name: flavio
+               email: flavio@gmail.com
+               createdAt: '2024-09-22T21:21:21.000Z'
+               updatedAt: '2024-09-22T21:28:14.000Z'
+             - id: 3
+               name: caio
+               email: caio@example.com
+               createdAt: '2024-09-22T21:22:08.000Z'
+               updatedAt: '2024-09-22T21:22:08.000Z'
+             - id: 4
+               name: Kumay
+               email: Kumay@gmail.com
+               createdAt: '2024-09-22T21:34:54.000Z'
+               updatedAt: '2024-09-22T21:34:54.000Z'
+             
+        options:
+          raw:
+            language: json
+      url:
+        raw: http://localhost:3000/users/
+        protocol: http
+        host:
+          - localhost
+        port: '3000'
+        path:
+          - users
+          - ''
+      description: Metodo Get que retorna todos os usuarios
+    response: []
+    
+  - name: http://localhost:3000/users/
+    request:
+      method: POST
+      header: []
+      body:
+        mode: raw
+        raw: "{\r\n    \"name\": \"Fabio\",\r\n    \"email\": \"Fabio@gmail.com\"\r\n}"
+        options:
+          raw:
+            language: json
+      url:
+        raw: http://localhost:3000/users/
+        protocol: http
+        host:
+          - localhost
+        port: '3000'
+        path:
+          - users
+          - ''
+    response: []
+  - name: http://localhost:3000/users/
+    request:
+      method: PUT
+      header: []
+      body:
+        mode: raw
+        raw: "{\r\n    \"name\": \"Kumay\",\r\n    \"email\": \"Kumay@gmail.com\"\r\n}"
+        options:
+          raw:
+            language: json
+      url:
+        raw: http://localhost:3000/users/4
+        protocol: http
+        host:
+          - localhost
+        port: '3000'
+        path:
+          - users
+          - '4'
+    response: []
+  - name: http://localhost:3000/users/
+    request:
+      method: DELETE
+      header: []
+      url:
+        raw: http://localhost:3000/users/4
+        protocol: http
+        host:
+          - localhost
+        port: '3000'
+        path:
+          - users
+          - '4'
+    response: []
