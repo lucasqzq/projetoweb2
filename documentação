@@ -1,134 +1,131 @@
+openapi: 3.0.0
 info:
-  name: Documentação API
-  description: Documentação das funcões da API
-  _exporter_id: '37391934'
-item:
-  - name: http://localhost:3000/users/1
-    protocolProfileBehavior:
-      disableBodyPruning: true
-    request:
-      method: GET
-      header: []
-      body:
-        mode: raw
-        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vini6622@gmail.com\"\r\n}    \"age\": \"20\"\r\n}    \"number\": \"17988287931\"\r\n}""
-        options:
-          raw:
-            language: json
-      url:
-        raw: http://localhost:3000/users/
-        protocol: http
-        host:
-          - localhost
-        port: '3000'
-        path:
-          - users
-          - ''
-      description: Metodo Get que retorna usuario em especifico
-    response: []
-    - name: http://localhost:3000/users/
-    protocolProfileBehavior:
-      disableBodyPruning: true
-    request:
-      method: GET
-      header: []
-      body:
-        mode: raw
-        raw: - id: 1
-               name: Vinicius
-               email: vini6622@gmail.com
-               age: 20
-               number: +5517988287931
-               createdAt: '2024-09-22T21:15:45.000Z'
-               updatedAt: '2024-09-22T21:28:59.000Z'
-             - id: 2
-               name: Paulo
-               email: paulovictroparada19@gmail.com
-               age: 20
-               number: +5517992113583
-               createdAt: '2024-09-22T21:21:21.000Z'
-               updatedAt: '2024-09-22T21:28:14.000Z'
-             - id: 3
-               name: caio
-               email: caiodesantana2608@outlook.com
-               age: 20
-               number: +5517981711228
-               createdAt: '2024-09-22T21:22:08.000Z'
-               updatedAt: '2024-09-22T21:22:08.000Z'
-             - id: 4
-               name: Kumay
-               email: gabrielkumay@hotmail.com
-               age: 20
-               number: +5517997259367
-               createdAt: '2024-09-22T21:34:54.000Z'
-               updatedAt: '2024-09-22T21:34:54.000Z'
-             
-        options:
-          raw:
-            language: json
-      url:
-        raw: http://localhost:3000/users/
-        protocol: http
-        host:
-          - localhost
-        port: '3000'
-        path:
-          - users
-          - ''
-      description: Metodo Get que retorna todos os usuarios
-    response: []
-    
-  - name: http://localhost:3000/users/
-    request:
-      method: POST
-      header: []
-      body:
-        mode: raw
-        raw: "{\r\n    \"name\": \"Vinicius\",\r\n    \"email\": \"vini6622@gmail.com\"\r\n}    \"number\": \"+5517988287932\"\r\n    \"age\": \"20\"\r\n}"
-        options:
-          raw:
-            language: json
-      url:
-        raw: http://localhost:3000/users/
-        protocol: http
-        host:
-          - localhost
-        port: '3000'
-        path:
-          - users
-          - ''
-    response: []
-  - name: http://localhost:3000/users/
-    request:
-      method: PUT
-      header: []
-      body:
-        mode: raw
-        raw: "{\r\n    \"name\": \"Kumay\",\r\n    \"email\": \"Kumay@gmail.com\"\r\n}    "{\r\n    \"number\": \"+5517997259367\",\r\n    \"age\": \"20\"\r\n}"
-        options:
-          raw:
-            language: json
-      url:
-        raw: http://localhost:3000/users/4
-        protocol: http
-        host:
-          - localhost
-        port: '3000'
-        path:
-          - users
-          - '4'
-    response: []
-  - name: http://localhost:3000/users/
-    request:
-      method: DELETE
-      header: []
-      url:
-        raw: http://localhost:3000/users/4
-        protocol: http
-        host:
-          - localhost
-        port: '3000'
-        path:
-          - users
-          - '4'
-    response: []
+  title: Documentação API
+  description: Documentação das funções da API
+  version: 1.0.0
+paths:
+  /users/1:
+    get:
+      summary: "Obter usuário específico"
+      description: "Método GET que retorna um usuário específico"
+      responses:
+        '200':
+          description: "Usuário encontrado"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  age:
+                    type: integer
+                  number:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+
+  /users:
+    get:
+      summary: "Obter todos os usuários"
+      description: "Método GET que retorna todos os usuários"
+      responses:
+        '200':
+          description: "Lista de usuários"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    age:
+                      type: integer
+                    number:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    updatedAt:
+                      type: string
+                      format: date-time
+
+    post:
+      summary: "Criar usuário"
+      description: "Método POST para criar um novo usuário"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                number:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        '201':
+          description: "Usuário criado com sucesso"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /users/4:
+    put:
+      summary: "Atualizar usuário"
+      description: "Método PUT para atualizar um usuário existente"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                number:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        '200':
+          description: "Usuário atualizado com sucesso"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+    delete:
+      summary: "Deletar usuário"
+      description: "Método DELETE para remover um usuário"
+      responses:
+        '204':
+          description: "Usuário deletado com sucesso"
