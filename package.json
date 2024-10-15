@@ -4,21 +4,38 @@
   "description": "Projeto Web2",
   "main": "Server.js",
   "scripts": {
-    "start": "node Server.js",
-    "debug": "nodemon --watch package.json --watch Server.js --watch UserRouter.js --watch UserController.js --watch User.js --watch UserService.js --ext json,js Server.js"
+    "start": "ts-node-dev Server.ts",
+    "debug": "nodemon --watch package.json --watch Server.ts --watch UserRoutes.ts --watch database.ts --watch UserController.ts --watch User.ts --watch UserService.ts --ext json,js,ts Server.ts"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "@types/sequelize": "^4.28.20",
+    "@types/swagger-ui-express": "^4.1.6",
     "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.3",
     "nodemon": "^3.1.4",
     "pg": "^8.12.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.2.2",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/swagger-jsdoc": "^6.0.4"
   }
 }
