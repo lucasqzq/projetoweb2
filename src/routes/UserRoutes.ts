@@ -46,9 +46,9 @@ router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *                 properties:
  *                   id:
  *                     type: integer
- *                   name:
- *                     type: string
  *                   email:
+ *                     type: string
+ *                   password:
  *                     type: string
  */
 router.get('/', UserController.getAllUsers);
@@ -66,9 +66,11 @@ router.get('/', UserController.getAllUsers);
  *           schema:
  *             type: object
  *             properties:
- *               name:
- *                 type: string
+ *               id:
+ *                 type: integer
  *               email:
+ *                 type: string
+ *               password:
  *                 type: string
  *     responses:
  *       201:
@@ -121,9 +123,11 @@ router.get('/:id', UserController.getUserById);
  *           schema:
  *             type: object
  *             properties:
- *               name:
- *                 type: string
+ *               id:
+ *                 type: integer
  *               email:
+ *                 type: string
+ *               password:
  *                 type: string
  *     responses:
  *       200:
@@ -184,7 +188,8 @@ router.delete('/:id', UserController.deleteUser);
  *       401:
  *         description: Credenciais inválidas
  */
-router.post('/login', UserController.login)
+router.post('/login', UserController.login);
+
 
 // Exporta o roteador
 export default router;
